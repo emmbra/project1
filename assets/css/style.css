@@ -1,34 +1,47 @@
 
 
-.row {
-    background-color: pink;
-    border-width: 1px;
-    border-style: solid;
-    height: 100px;
+.ui.vertical.segment {
+    background:#324932;
+    color: abad71
 }
+
 
 .column {
-    background-color: orange;
+    background-color: #8ea594;
     border-width: 1px;
     border-style: solid;
 }
 
 
-
-
-
-.form{
-    background-color: purple;
-    
+.ui.vertical.sticky.footer.segment{
+    border-top: 1px solid #DDDDDD;
+    color:#abad71;
+    background-color:495e4d;
+    padding-top: 2em;
 }
 
-.weather{
-
-    background-color: green;
-
-}
-
-.card{
-background-color: blue;
+.ui.button{
+padding: 10px;
 
 }
+/* 
+color index
+    brown
+        #8e6a55
+        rgb(142, 106, 85)
+    light green
+        #abad71
+        rgb(171, 173, 113)
+
+    light teal green
+        #8ea594
+        rgb(142, 165, 148)
+
+    darker green
+        #495e4d
+        rgb(73, 94, 77)
+        
+    dark grey
+        #374046
+        rgb(55, 64, 70)
+ */
