@@ -34,7 +34,7 @@ $(document).ready(function() {
         .addClass("header")
         .text(response.name + ": ");
       var dateTime = $("<span>").text(currentDay);
-      var weatherIcon = $("<img>").attr(
+      var weatherIcon = $("<img>").addClass("weather-icon").attr(
         "src",
         "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
       );
