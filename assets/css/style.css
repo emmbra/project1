@@ -1,0 +1,34 @@
+
+
+.row {
+    background-color: pink;
+    border-width: 1px;
+    border-style: solid;
+    height: 100px;
+}
+
+.column {
+    background-color: orange;
+    border-width: 1px;
+    border-style: solid;
+}
+
+
+
+
+
+.form{
+    background-color: purple;
+    
+}
+
+.weather{
+
+    background-color: green;
+
+}
+
+.card{
+background-color: blue;
+
+}

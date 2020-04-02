@@ -1,26 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./assets/Semantic-UI-CSS-master/semantic.min.css">
+
+    <title>Trail Run Finder</title>
+    <link rel="shortcut icon" type="image/png" href="./assets/running-man_318-1564.jpg">
+
 </head>
+
 <body>
 
-<div class="button">hello</div>
+    <header>
+        <div class="ui sizer vertical segment">
+            <div class="ui huge header">
+                Trail run finder
 
+        </div>
+        </div>
+    </header>
 
-<p>Greetings!</p>
+    <div class="ui celled grid">
+        <div class="two column row">
+            <div class=" column">
+                <h2 class="ui header">
+                    <i class="child icon"></i>
+                    <div class="content">
+                        Find your ideal trail!
+                    </div>
+                </h2>
+                <form class="ui form">
+                    <h4 class="ui dividing header">Location</h4>
+                    <div class="field">
+                        <input type="text" name="Location" placeholder="Location">
+                    </div>
+                    <div class="inline fields">
+                        <label>Choose your difficulty</label>
+                        <div class="field">
+                          <div class="ui radio checkbox">
+                            <input type="radio" name="difficulty" tabindex="0" class="hidden">
+                            <label>Easy</label>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <div class="ui radio checkbox">
+                            <input type="radio" name="difficulty" tabindex="0" class="hidden">
+                            <label>Intermediate</label>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <div class="ui radio checkbox">
+                            <input type="radio" name="difficulty" tabindex="0" class="hidden">
+                            <label>Difficult</label>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <div class="ui radio checkbox">
+                            <input type="radio" name="difficulty" tabindex="0" class="hidden">
+                            <label>Very Diificult</label>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="field">
+                        <div class="two fields">
+                            <div class="field">
+                              <input type="text" name="min-distance" placeholder="Minimum Distance">
+                            </div>
+                            <div class="field">
+                              <input type="text" name="max-distance" placeholder="Maximum Distance">
+                            </div>
+                          </div>
+                    </div>
+                    <div class="fields">
+                        <label>Number of Results</label>
+                        <select class="ui fluid dropdown">
+                            <!-- <option value="">Choose how many results you would like to see</option> -->
+                            <option value="0">1</option>
+                            <option value="1">5</option>
+                            <option value="2">10</option>
+                        </select>
+                    </div>
+                    <div class="ui button" tabindex="0">Submit</div>
+                </form>
+            </div>
+        <div class=" column">
+            <div class="row weather">
+                <h2 class="ui header">
+                    <i class="sun icon"></i>
+                    <div class="content">
+                        Weather Section
+                    </div>
+                </h2>
+            </div>
+            <div class="row map">
+                <h2 class="ui header">
+                    <i class="map icon"></i>
+                    <div class="content">
+                        Map Section
+                    </div>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="ui inverted vertical footer segment">
+        <div class="ui center aligned container">
+          <div class="ui stackable inverted divided grid">
+            <div class="three wide column">
+              <h4 class="ui inverted header">Group 1</h4>
+              <div class="ui inverted link list">
+                <a href="#" class="item">Link One</a>
+                <a href="#" class="item">Link Two</a>
+                <a href="#" class="item">Link Three</a>
+                <a href="#" class="item">Link Four</a>
+              </div>
+            </div>
+            <div class="three wide column">
+              <h4 class="ui inverted header">Group 2</h4>
+              <div class="ui inverted link list">
+                <a href="#" class="item">Link One</a>
+                <a href="#" class="item">Link Two</a>
+                <a href="#" class="item">Link Three</a>
+                <a href="#" class="item">Link Four</a>
+              </div>
+            </div>
+            <div class="three wide column">
+              <h4 class="ui inverted header">Group 3</h4>
+              <div class="ui inverted link list">
+                <a href="#" class="item">Link One</a>
+                <a href="#" class="item">Link Two</a>
+                <a href="#" class="item">Link Three</a>
+                <a href="#" class="item">Link Four</a>
+              </div>
+            </div>
+            <div class="seven wide column">
+              <h4 class="ui inverted header">Footer Header</h4>
+              <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+            </div>
+          </div>
+          <div class="ui inverted section divider"></div>
+          <img src="assets/images/logo.png" class="ui centered mini image">
+          <div class="ui horizontal inverted small divided link list">
+            <a class="item" href="#">Site Map</a>
+            <a class="item" href="#">Contact Us</a>
+            <a class="item" href="#">Terms and Conditions</a>
+            <a class="item" href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
 
-    <p>hello hello</p>
-
-<div class="box"></div>
-<div class="test"></div>
-
-<a href="https://www.google.com"></a>
-
-<div class="container"></div>
-
-
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALnkxAxITBNsbmlqEj1G7obJ8atqmEePQ&callback=initMap"> </script>
 </body>
+
 </html>
