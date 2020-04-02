@@ -1,29 +1,53 @@
-
+body {
+    background-image: url(../img/opt3.jpg);
+    background-color: lightgreen;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .ui.vertical.segment {
-    background:#324932;
-    color: abad71
+  background: #324932;
+  color: #abad71;
+}
+.ui.celled.grid{
+  background-color: #8ea594;
+  border-width: 1px;
+  border-style: solid;
+  opacity: 0.85;
 }
 
-
-.column {
-    background-color: #8ea594;
-    border-width: 1px;
-    border-style: solid;
-}
-
-
-.ui.vertical.sticky.footer.segment{
-    border-top: 1px solid #DDDDDD;
-    color:#abad71;
-    background-color:495e4d;
-    padding-top: 2em;
-}
-
-.ui.button{
-padding: 10px;
+.column{
+    opacity: 1;
 
 }
+.ui.vertical.sticky.footer.segment {
+  border-top: 1px solid #dddddd;
+  color: #abad71;
+  background-color: 495e4d;
+  padding-top: 2em;
+  text-align:center;
+}
+
+.ui.button {
+  margin-top: 20px;
+}
+
+.ui.card {
+  background-color: #8ea594;
+  border-color: #374046;
+  padding: 20px;
+}
+
+.weather-icon {
+  width: 25%;
+  height: 25%;
+}
+
+/* .img {
+  width: 30px;
+} */
 /* 
 color index
     brown
