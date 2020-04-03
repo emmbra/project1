@@ -5,6 +5,11 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+
+  min-height: 100vh;
+  margin: 0 auto;
+  color: white;
 }
 .ui.vertical.segment {
   background: #324932;
