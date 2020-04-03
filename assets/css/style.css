@@ -6,7 +6,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 .ui.vertical.segment {
   background: #324932;
   color: #abad71;
@@ -43,30 +42,24 @@ body {
   height: 60px;
   flex-shrink: none;
 }
-
 .ui.button {
   margin-top: 20px;
 }
-
 .ui.card {
   background-color: #8ea594;
   border-color: #374046;
   padding: 20px;
 }
-
 #weather-icon {
-  width: 15%;
-  height: 15%;
+  width: 10%;
+  height: 10%;
 }
-
 #weather-header {
-font-size: larger;
+font-size: 20px;
 }
-
 #weather-description {
 font-size: medium;
 }
-
 /* .img {
   width: 30px;
 } */

@@ -1,18 +1,13 @@
 $(document).ready(function() {
- 
 // global variables
   // default values for lat/lon in case user does not provide permission to know their geolocation
   // needed so api request to trailruns doesn't break
-
   var latitude = 37.7749;
   var longitude = -122.4194;
-
   // set current day using moment.js -- referenced by weather function
   var currentDay = moment().format("LL");
-
   //invoke runWeather function to display default weather info on page load
   runWeather();
-
   // on click event listener for search button
   $("#submit-btn").on("click", function() {
     console.log("hello");
@@ -22,10 +17,7 @@ $(document).ready(function() {
     $("#city-searched").val("");
     runWeather(locationSearched);
     // add runCriteria function to invoke
-    
   });
-
-
   // function to retrieve current day's weather and create HTMl elements
   // set default city to San Francisco so page isn't blank on load
   function runWeather(locationSearched = "San Francisco") {
@@ -43,7 +35,8 @@ $(document).ready(function() {
         .attr("id", "weather-header")
         .text(response.name + ": ");
       var dateTime = $("<span>").text(currentDay);
-      var weatherIcon = $("<img>").attr("id", "weather-icon").attr(
+      var weatherIcon = $("<img>")
+      .attr("id", "weather-icon").attr(
         "src",
         "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
       );
@@ -68,8 +61,6 @@ $(document).ready(function() {
       $("#weather-content").append(dailyForecastCard);
     });
   }
-
-
   // built in DOM geolocation
   function getLocation() {
     if (navigator.geolocation) {
@@ -83,7 +74,6 @@ $(document).ready(function() {
   console.log(longitude);
 }
 //   function to retrieve trail run data based on user criteria and create HTML elements to append
-
   function runCriteria(event) {
     // need to feed in longitude/latitude from geolocation or use default values or api request fails
     // reference latitude from geolocation 
@@ -97,11 +87,8 @@ $(document).ready(function() {
           // Easy - Green
           // Interediate - Blue
           // Difficult, Very Difficult - Black
-
     getLocation();
-
     var runCriteriaURL = `https://www.trailrunproject.com/data/get-trails?lat=${latitude}&lon=${longitude}&key=200717421-32b757164356f1ff9be99bc247820aea`
-  
     if (maxDistance) {
         runCriteriaURL += `&maxDistance=${maxDistance}`;
     }
@@ -123,13 +110,10 @@ $(document).ready(function() {
         type: "GET"
       }).then(function(response) {
           console.log(response);
-          
           var trails = response.trails;
           var trailCount = $maxResults.val();
-
           var $ulEl = $('<ul>');
           $('.results-content').append($ulEl);
-
           for (let i = 0; i <= trailCoun; i++) {
             var name = trails[i].name;
             var summary = trails[i].summary;
@@ -146,11 +130,9 @@ $(document).ready(function() {
             var $ploc = $('<p>').text(location);
             var $imglen = $('<p>').text(stars);
             var $aUrl = $('<p>').text(stars);
-            
           }
           //append html elements to the page
   })
 }
-
 runCriteria();
 });
