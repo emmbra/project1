@@ -1,22 +1,21 @@
 $(document).ready(function() {
-  // global variables
-    // default values for lat/lon in case user does not provide permission to know their geolocation
-    // needed so api request to trailruns doesn't break
-    var latitude = 37.7749;
-    var longitude = -122.4194;
+
     // set current day using moment.js -- referenced by weather function
     var currentDay = moment().format("LL");
     //invoke runWeather function to display default weather info on page load
     runWeather();
+
     // on click event listener for search button
-    $("#submit-btn").on("click", function() {
+    $("#submit-btn").on("click", function(event) {
+      event.preventDefault();
+      $("#results-content").empty();
       console.log("hello");
       var locationSearched = $("#location-searched")
         .val()
         .trim();
       $("#city-searched").val("");
       runWeather(locationSearched);
-      // add runCriteria function to invoke
+
     });
     // function to retrieve current day's weather and create HTMl elements
     // set default city to San Francisco so page isn't blank on load
@@ -49,6 +48,8 @@ $(document).ready(function() {
         var temperature = $("<p>")
           .attr("id", "weather-description")
           .text("Temperature: " + response.main.temp + "°F");
+        var latitude = response.coord.lat;
+        var longitude = response.coord.lon;
         // append HTML elements
         cityName.append(dateTime);
         dailyForecastCard.append(
@@ -59,8 +60,11 @@ $(document).ready(function() {
           humidity
         );
         $("#weather-content").append(dailyForecastCard);
+      // add runCriteria function to invoke
+      runCriteria(latitude, longitude);
       });
     }
+
     // built in DOM geolocation
     function getLocation() {
       if (navigator.geolocation) {
@@ -73,21 +77,23 @@ $(document).ready(function() {
     console.log(latitude);
     console.log(longitude);
   }
+
   //   function to retrieve trail run data based on user criteria and create HTML elements to append
-    function runCriteria(event) {
+    function runCriteria(latitude= 37.7749, longitude=-122.4194) {
       // need to feed in longitude/latitude from geolocation or use default values or api request fails
       // reference latitude from geolocation 
       // reference longitude from geolocation 
-      var $maxDistance = $(".maxDistance") // default is 30, range is 0-200
-      var $minDistance = $(".minDistance") // default is 0, range is 0-200
-      var $maxResults = $(".ui fluid dropdown") // default is 10, range is 0-500
-      var $minRating = "" // default is 0, range is 0-4, this is star rating, may not need
-      var $difficulty = $(".difficulty")
+      var maxDistance = $(".maxDistance").val(); // default is 30, range is 0-200
+      var minDistance = $(".minDistance").val(); // default is 0, range is 0-200
+      var maxResults = $(".result-dropdown").val(); // default is 10, range is 0-500
+      var difficulty = $("#radio-form input[type='radio']:checked").val();
+
           // difficulty index -- colors to difficulty
             // Easy - Green
             // Interediate - Blue
             // Difficult, Very Difficult - Black
-      getLocation();
+            
+      // getLocation();
       var runCriteriaURL = `https://www.trailrunproject.com/data/get-trails?lat=${latitude}&lon=${longitude}&key=200717421-32b757164356f1ff9be99bc247820aea`
       if (maxDistance) {
           runCriteriaURL += `&maxDistance=${maxDistance}`;
@@ -97,9 +103,6 @@ $(document).ready(function() {
       }
       if (maxResults) {
           runCriteriaURL += `&maxResults=${maxResults}`;
-      }
-      if (minRating) {
-          runCriteriaURL += `&minStars=${minRating}`;
       }
       if (difficulty) {
         runCriteriaURL += `&difficulty=${difficulty}`;
@@ -111,27 +114,45 @@ $(document).ready(function() {
         }).then(function(response) {
             console.log(response);
             var trails = response.trails;
-            var trailCount = $maxResults.val();
+            // var trailCount = $maxResults.val();
             var $ulEl = $('<ul>');
-            $('.results-content').append($ulEl);
-            for (let i = 0; i <= trailCoun; i++) {
+            $('#results-content').append($ulEl);
+            for (var i = 0; i < maxResults; i++) {
+
+              //create variables referencing API data
               var name = trails[i].name;
               var summary = trails[i].summary;
               var difficulty = trails[i].difficulty;
-              var stars = trails[i].stars;
+              var stars = trails[i].stars;git stat
               var location = trails[i].location;
               var length = trails[i].length;
-              var imgSmall = trails[i].imgSqSmall;
-              var url = trails[i].url;
+              var imgSmall = trails[i].imgSmall;
+              var trailLink = trails[i].url;
+
+              //create HTML elements
               var $li = $('<li>');
               var $strong = $('<strong>').text(name);
-              var $pSum = $('<p>').text(summary);
-              var $pSta = $('<p>').text(stars);
-              var $ploc = $('<p>').text(location);
-              var $imglen = $('<p>').text(stars);
-              var $aUrl = $('<p>').text(stars);
+              var $pSum = $('<p>').text("Summary: " + summary);
+              var $pDiffi = $('<p>').text("Difficulty: " + difficulty);
+              var $pSta = $('<p>').text("Rating: " + stars);
+              var $pLoc = $('<p>').text("Location: " + location);
+              var $pLen = $('<p>').text("Length: " + length);
+              var $imgSm = $('<img>').attr('src', imgSmall);
+              var $aUrl = $('<a>').attr('href', trailLink).text(trailLink);
+              
+              //append HTML elements to the page
+              $ulEl.append($li);
+              $li.append(
+                $strong,
+                $pSum,
+                $pSta,
+                $pLoc,
+                $pLen,
+                $imgSm,
+                $aUrl
+              );
             }
-            //append html elements to the page
+            
     })
   }
   runCriteria();
