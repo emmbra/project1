@@ -1,142 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./assets/Semantic-UI-CSS-master/semantic.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/Semantic-UI-CSS-master/semantic.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Trail Run Finder</title>
-    <link rel="shortcut icon" type="image/png" href="./assets/running-man_318-1564.jpg">
-
-</head>
-
-<body>
-
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="./assets/running-man_318-1564.jpg"
+    />
+  </head>
+  <body>
     <header>
-        <div class="ui sizer vertical segment center aligned">
-            <div class="ui huge header">
-                Trail run finder
-
+      <div class="ui sizer vertical segment center aligned">
+        <div class="ui huge header">
+          Trail Run Finder
         </div>
-        </div>
+      </div>
     </header>
-
     <div class="ui celled grid">
-        <div class="two column row">
-            <div class=" column">
-                <h2 class="ui header">
-                    <i class="child icon"></i>
-                    <div class="content">
-                        Find your ideal trail!
-                    </div>
-                </h2>
-                <form class="ui form">
-                    <h4 class="ui dividing header">Location</h4>
-                    <div class="field">
-                        <input type="text" id="location-searched" name="Location" placeholder="Location">
-                    </div>
-                    <div class="inline fields">
-                        <label>Choose your difficulty</label>
-                        <div class="field">
-                          <div class="ui radio checkbox">
-                            <input type="radio" name="difficulty" tabindex="0" class="hidden">
-                            <label>Easy</label>
-                          </div>
-                        </div>
-                        <div class="field">
-                          <div class="ui radio checkbox">
-                            <input type="radio" name="difficulty" tabindex="0" class="hidden">
-                            <label>Intermediate</label>
-                          </div>
-                        </div>
-                        <div class="field">
-                          <div class="ui radio checkbox">
-                            <input type="radio" name="difficulty" tabindex="0" class="hidden">
-                            <label>Difficult</label>
-                          </div>
-                        </div>
-                        <div class="field">
-                          <div class="ui radio checkbox">
-                            <input type="radio" name="difficulty" tabindex="0" class="hidden">
-                            <label>Very Diificult</label>
-                          </div>
-                        </div>
-                      </div>
-                    <div class="field">
-                        <div class="two fields">
-                            <div class="field">
-                              <label>Minimum Distance</label>
-                              <input type="text" name="min-distance" placeholder="Min">
-                            </div>
-                            <div class="field">
-                              <label>Maximum</label>
-                              <input type="text" name="max-distance" placeholder="Max">
-                            </div>
-                          </div>
-                    </div>
-                    <div class="fields">
-                        <label>Number of Results</label>
-                        <select class="ui fluid dropdown">
-                            <!-- <option value="">Choose how many results you would like to see</option> -->
-                            <option value="0">1</option>
-                            <option value="1">5</option>
-                            <option value="2">10</option>
-                        </select>
-                    </div>
-
-                    <div class="ui button" id="submit-btn" tabindex="0">Submit</div>
-                </form>
+      <div class="two column row">
+        <div class="column">
+          <h2 class="ui header">
+            <i class="child icon"></i>
+            <div class="content">
+              Find your ideal trail!
             </div>
-        <div class=" column">
-            <div class="row weather">
-                <h2 class="ui header">
-                    <i class="sun icon"></i> 
-                    <div class="content"> Current Weather</div>
-                    <div id="weather-content">
-                    </div>
-                </h2>
+          </h2>
+          <form class="ui form">
+            <h4 class="ui dividing header">Location</h4>
+            <div class="field">
+              <input
+                type="text"
+                id="location-searched"
+                name="Location"
+                placeholder="Location"
+              />
             </div>
-            <div class="row map">
-                <h2 class="ui header">
-                    <i class="map icon"></i>
-                    <div class="content"> Current Location</div>
-                    <div id="map-content">
-                    </div>
-                </h2>
+            <div class="inline fields">
+              <label>Difficulty:</label>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input
+                    type="radio"
+                    name="difficulty"
+                    tabindex="0"
+                    id="hidden difficulty-green"
+                    readonly=""
+                    value="easy"
+                  />
+                  <label>Easy</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input
+                    type="radio"
+                    name="difficulty"
+                    tabindex="0"
+                    id="hidden difficulty-blue"
+                    readonly=""
+                    value="intermediate"
+                  />
+                  <label>Medium</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input
+                    type="radio"
+                    name="difficulty"
+                    tabindex="0"
+                    id="hidden difficulty-black"
+                    readonly=""
+                    value="difficult"
+                  />
+                  <label>Hard</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input
+                    type="radio"
+                    name="difficulty"
+                    tabindex="0"
+                    id="hidden difficulty-black"
+                    readonly=""
+                    value="very difficult"
+                  />
+                  <label>Very Hard</label>
+                </div>
+              </div>
             </div>
+            <div class="field">
+              <div class="two fields">
+                <div class="field">
+                  <label>Minimum Distance (Optional):</label>
+                  <input type="text" name="min-distance" class ="minDistance" placeholder="Min Distance: 0-200 miles" />
+                </div>
+                <div class="ui range" id="min-range"></div>
+                <div class="field">
+                  <label>Maximum Distance (Optional):</label>
+                  <input type="text" name="max-distance"  class ="maxDistance" placeholder="Max Distance: 0-200 miles" />
+                </div>
+              </div>
+            </div>
+            <div class="fields">
+              <label>Number of Results (Optional)</label>
+              <select class="ui fluid dropdown">
+                <!-- <option value="">Choose how many results you would like to see</option> -->
+                <option value="0">1</option>
+                <option value="1">5</option>
+                <option value="2">10</option>
+              </select>
+            </div>
+            <div class="ui button" id="submit-btn" tabindex="0">Submit</div>
+          </form>
         </div>
-    </div>
-
-    <div class="row row-results">
+        <div class="column">
+          <div class="row weather">
+            <h2 class="ui header">
+              <i class="sun icon"></i>
+              <div class="content">Current Weather</div>
+              <div id="weather-content"></div>
+            </h2>
+          </div>
+          <div class="row map">
+            <h2 class="ui header">
+              <i class="map icon"></i>
+              <div class="content">Current Location</div>
+              <div id="map-content"></div>
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="row row-results">
         <h2 class="ui header">
           <i class="file alternate outline icon"></i>
-          <div class="content"> Results</div>
-            <div id="results-content">
-                <br>
-                <p>List go here</p>
-                <br>
-                <br>
-                <br>
-            </div>
+          <div class="content">Results</div>
+          <div id="results-content">
+            <br />
+            <p>List go here</p>
+            <br />
+            <br />
+            <br />
+          </div>
         </h2>
+      </div>
     </div>
-
-  </div>
-  <footer>
-    <div class="ui vertical sticky footer segment ">
+    <footer>
+      <div class="ui vertical sticky footer segment">
         <div class="ui center aligned container">
-              <i class="leaf icon"></i>
-              <h4 class="ui header"></h4>
+          <i class="leaf icon"></i>
+          <h4 class="ui header"></h4>
         </div>
       </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/Semantic-UI-CSS-master/semantic.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
-</body>
-
+  </body>
 </html>
