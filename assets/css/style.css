@@ -1,33 +1,46 @@
 body {
-    background-image: url(../img/opt3.jpg);
-    background-color: lightgreen;
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url(../img/opt3.jpg);
+  background-color: lightgreen;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .ui.vertical.segment {
   background: #324932;
   color: #abad71;
 }
-.ui.celled.grid{
+.ui.celled.grid {
   background-color: #8ea594;
   border-width: 1px;
   border-style: solid;
   opacity: 0.85;
+  width: 90%;
+  border-radius: 2%;
+  margin-right: 20px;
+  margin-left: 70px;
+  margin-top:20px;
+  margin-bottom:20px;
 }
+.row{
+  margin-top:20px;
+  margin-bottom:20px;
 
-.column{
-    opacity: 1;
-
+}
+.column {
+  opacity: 1;
+  /* margin:10px; */
 }
 .ui.vertical.sticky.footer.segment {
   border-top: 1px solid #dddddd;
   color: #abad71;
   background-color: 495e4d;
-  padding-top: 2em;
-  text-align:center;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
 }
 
 .ui.button {
