@@ -123,7 +123,7 @@ $(document).ready(function() {
               var name = trails[i].name;
               var summary = trails[i].summary;
               var difficulty = trails[i].difficulty;
-              var stars = trails[i].stars;git stat
+              var stars = trails[i].stars;
               var location = trails[i].location;
               var length = trails[i].length;
               var imgSmall = trails[i].imgSmall;
