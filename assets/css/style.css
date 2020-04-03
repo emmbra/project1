@@ -25,7 +25,6 @@ body {
 .row{
   margin-top:20px;
   margin-bottom:20px;
-
 }
 .column {
   opacity: 1;
@@ -71,15 +70,12 @@ color index
     light green
         #abad71
         rgb(171, 173, 113)
-
     light teal green
         #8ea594
         rgb(142, 165, 148)
-
     darker green
         #495e4d
         rgb(73, 94, 77)
-        
     dark grey
         #374046
         rgb(55, 64, 70)
