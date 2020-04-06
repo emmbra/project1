@@ -7,7 +7,7 @@ $(document).ready(function () {
   runWeatherFiveDay();
 
   // on click event listener for search button
-  $("#submit-btn").on("click", function (event) {
+  $("#search-btn").on("click", function (event) {
     event.preventDefault();
     $("#results-content").empty();
     console.log("hello");
@@ -27,7 +27,9 @@ $(document).ready(function () {
       console.log(response);
       $("#weather-content").empty();
       // make variables and HTML elements
+      // var dailyForecastCard = $("<div>").addClass("ui card");
       var dailyForecastCard = $("<div>").addClass("ui card");
+
       var cityName = $("<p>")
         .attr("id", "weather-header")
         .text(response.name + ": ");
@@ -81,10 +83,10 @@ $(document).ready(function () {
         if (response.list[i].dt_txt.indexOf("18:00:00") !== -1) {
           // create HTML elements
           var fiveDayForecastCard = $("<div>").addClass("ui card");
-          var formattedDate = moment(response.list[i].dt_txt).format("LL");
-          var fiveDayCityName = $("<p>")
+          var formattedDate = moment(response.list[i].dt_txt).format("l");
+          var fiveDayCityName = $("<span>")
             .attr("id", "weather-header")
-            .text(response.city.name + ": ");
+            .text(response.city.name);
           var fiveDayDate = $("<span>").text(formattedDate);
           var fiveDayIcon = $("<img>").attr("id", "weather-icon").attr(
             "src",
@@ -94,19 +96,20 @@ $(document).ready(function () {
           );
           var fiveDayTemp = $("<p>")
             .attr("id", "weather-description")
-            .text("Temperature: " + response.list[i].main.temp + "°F");
+            .text("Temp: " + response.list[i].main.temp + "°F");
           var fiveDayHumidity = $("<p>")
             .attr("id", "weather-description")
             .text("Humidity: " + response.list[i].main.humidity + "%");
 
           // append created HTML elements
-          fiveDayCityName.append(fiveDayDate);
           fiveDayForecastCard.append(
-            fiveDayCityName,
+            fiveDayDate,
             fiveDayIcon,
             fiveDayTemp,
             fiveDayHumidity
           );
+          $("#currentCity").empty();
+          $("#currentCity").append(fiveDayCityName);
           $("#5-day-content").append(fiveDayForecastCard);
         }
       }
@@ -163,8 +166,8 @@ $(document).ready(function () {
       console.log(response);
       var trails = response.trails;
       // var trailCount = $maxResults.val();
-      var $ulEl = $("<ul>");
-      $("#results-content").append($ulEl);
+      // var $ulEl = $("<ul>");
+      // $("#results-content").append($ulEl);
       for (var i = 0; i < maxResults; i++) {
         //create variables referencing API data
         var name = trails[i].name;
@@ -176,22 +179,25 @@ $(document).ready(function () {
         var imgSmall = trails[i].imgSmall;
         var trailLink = trails[i].url;
 
+        console.log(difficulty);
+
         //create HTML elements
-        var $li = $("<li>").addClass("ui segment fluid results-card");
+        var $resultsDiv = $("<div>").addClass("ui segment fluid results-card");
         var $imgSmall = $("<img>").attr("src", imgSmall).addClass('ui small left floated image results-img');
-        var $pTrailName = $("<p>").attr("id", "trail-header").text(name);
+        var $aUrl = $(`<a href="` + trailLink + `">` + name + `</a>`).attr("id", "trail-header");
+        // var $pTrailName = $("<p>").attr("id", "trail-header").text(name);
         var $pSummary = $("<p>").attr("id", "trail-description").text("Summary: " + summary);
         var $pDifficulty = $("<p>").attr("id", "trail-description").text("Difficulty: " + difficulty);
         var $pStars = $("<p>").attr("id", "trail-description").text("Rating: " + stars +"/5");
         var $pLocation = $("<p>").attr("id", "trail-description").text("Location: " + location);
-        var $pLength = $("<p>").attr("id", "trail-description").text("Length: " + length + "miles");
+        var $pLength = $("<p>").attr("id", "trail-description").text("Length: " + length + " miles");
 
-        var $aUrl = $(`<a href="` + trailLink + `">` + name + `</a>`);
         // var $aUrl = $("<a>").attr("href", trailLink).innerHTML(name);
 
         //append HTML elements to the page
-        $ulEl.append($li);
-        $li.append($imgSmall, $pTrailName, $pSummary, $pDifficulty, $pStars, $pLocation, $pLength, $aUrl);
+        // $ulEl.append($li);
+        $("#results-content").append($resultsDiv);
+        $resultsDiv.append($imgSmall, $aUrl, $pSummary, $pDifficulty, $pStars, $pLocation, $pLength);
       }
     });
   }
