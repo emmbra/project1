@@ -12,7 +12,8 @@ $(document).ready(function () {
     $("#results-content").empty();
     console.log("hello");
     var locationSearched = $("#location-searched").val().trim();
-    $("#city-searched").val("");
+    console.log(locationSearched);
+    $("#location-searched").val("");
     runWeather(locationSearched);
   });
 
@@ -26,6 +27,7 @@ $(document).ready(function () {
     }).then(function (response) {
       console.log(response);
       $("#weather-content").empty();
+      $(".currentCityDate").empty();
       // make variables and HTML elements
       // var dailyForecastCard = $("<div>").addClass("ui card");
       var dailyForecastCard = $("<div>").addClass("ui centered card");
@@ -120,17 +122,17 @@ $(document).ready(function () {
   // Do we need the geolocation here anymore since we pull lat/lon from the weather API?
 
   // built in DOM geolocation
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  }
-  function showPosition(position) {
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
-    console.log(latitude);
-    console.log(longitude);
-  }
+  // function getLocation() {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(showPosition);
+  //   }
+  // }
+  // function showPosition(position) {
+  //   latitude = position.coords.latitude;
+  //   longitude = position.coords.longitude;
+  //   console.log(latitude);
+  //   console.log(longitude);
+  // }
 
   //   function to retrieve trail run data based on user criteria and create HTML elements to append
   function runCriteria(latitude = 37.7749, longitude = -122.4194) {
