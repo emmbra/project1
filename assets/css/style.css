@@ -54,6 +54,15 @@ body {
   border-color: #374046;
   padding: 20px;
 }
+.ui.header:last-child {
+  margin-top: 10px;
+}
+.ui.fluid.card {
+  width: 95%;
+}
+.ui.segment {
+  background-color: #8ea594;
+}
 #weather-icon {
   width: 10%;
   height: 10%;
@@ -64,6 +73,15 @@ font-size: 20px;
 #weather-description {
 font-size: medium;
 }
+
+#trail-header {
+  font-size: 25px;
+  }
+
+#trail-description {
+  font-size: 15px;
+  }
+
 /* .img {
   width: 30px;
 } */

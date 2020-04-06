@@ -177,21 +177,21 @@ $(document).ready(function () {
         var trailLink = trails[i].url;
 
         //create HTML elements
-        var $li = $("<li>").addClass("ui card");
+        var $li = $("<li>").addClass("ui segment fluid results-card");
+        var $imgSmall = $("<img>").attr("src", imgSmall).addClass('ui small left floated image results-img');
         var $pTrailName = $("<p>").attr("id", "trail-header").text(name);
         var $pSummary = $("<p>").attr("id", "trail-description").text("Summary: " + summary);
         var $pDifficulty = $("<p>").attr("id", "trail-description").text("Difficulty: " + difficulty);
         var $pStars = $("<p>").attr("id", "trail-description").text("Rating: " + stars +"/5");
         var $pLocation = $("<p>").attr("id", "trail-description").text("Location: " + location);
         var $pLength = $("<p>").attr("id", "trail-description").text("Length: " + length + "miles");
-        var $imgSmall = $("<img>").attr("src", imgSmall);
 
-        var $aUrl = $(`<a href="` + trailLink + `">` + name + `</a>`)
+        var $aUrl = $(`<a href="` + trailLink + `">` + name + `</a>`);
         // var $aUrl = $("<a>").attr("href", trailLink).innerHTML(name);
 
         //append HTML elements to the page
         $ulEl.append($li);
-        $li.append($pTrailName, $pSummary, $pStars, $pLocation, $pLength, $imgSmall, $aUrl);
+        $li.append($imgSmall, $pTrailName, $pSummary, $pDifficulty, $pStars, $pLocation, $pLength, $aUrl);
       }
     });
   }
