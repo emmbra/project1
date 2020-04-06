@@ -6,7 +6,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-
   min-height: 100vh;
   margin: 0 auto;
   color: white;
@@ -27,9 +26,11 @@ body {
 #absolute {
   position: absolute;
   top: 0px;
-  right: 0;
+  right: 0px;
 }
-
+/* .ui.button{
+  height:40%;
+} */
 #subheader {
   font-family: "Amatic SC", cursive;
   color: black;
@@ -54,10 +55,6 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.row {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
 
 .ui.dividing.header {
   font-size: 18px;
@@ -70,19 +67,18 @@ body {
   bottom: 0;
   width: 100%;
 }
-.ui.button {
-  height: 40px;
-}
 
 .ui.fluid.dropdown {
   margin-left: 10px;
   width: 20%;
 }
+
 .ui.centered.card {
   background-color: #8ea59483;
   box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
   padding: 20px;
 }
+
 .ui.cards > .card {
   width: 15%;
   padding: 1%;
@@ -101,6 +97,7 @@ body {
 #results-card {
   margin-top: 5px;
 }
+
 #weather-icon-lg {
   margin-left: auto;
   margin-right: auto;
