@@ -14,70 +14,82 @@ body {
 .ui.vertical.segment {
   background: #324932;
 }
-.ui.huge.header{
-  font-family: 'Amatic SC', cursive;
+.ui.huge.header {
+  font-family: "Amatic SC", cursive;
   color: #abad71;
   font-size: 60px;
 }
 
-.ui.celled.grid {
-  background-color: #8ea594;
-  border-width: 1px;
-  border-style: solid;
-  opacity: 0.85;
-  width: 90%;
-  border-radius: .28571429rem;
-  margin-right: 20px;
-  margin-left: 70px;
-  margin-top:20px;
-  margin-bottom:20px;
-}
-.row{
-  margin-top:20px;
-  margin-bottom:20px;
+#relative {
+  position: relative;
 }
 
-.ui.dividing.header{
-  font-size: 18px;
+#absolute {
+  position: absolute;
+  top: 0px;
+  right: 0;
 }
-/* ----attempt to make items in the form have full opacity ---*/
-#main-text { 
-  opacity: 1;
-  /* margin:10px; */
+
+#subheader {
+  font-family: "Amatic SC", cursive;
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 #run-wild-font {
-  font-family: 'Amatic SC', cursive;
+  font-family: "Amatic SC", cursive;
   font-size: 30px;
+  font-weight: bold;
+}
+
+.ui.celled.grid {
+  background-color: #8ea594d3;
+  border-width: 1px;
+  border-style: solid;
+  width: 90%;
+  border-radius: 0.28571429rem;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ui.dividing.header {
+  font-size: 18px;
 }
 
 .ui.vertical.sticky.footer.segment {
   border-top: 1px solid #dddddd;
   color: #abad71;
-  background-color: 495e4d;
   text-align: center;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  flex-shrink: none;
 }
 .ui.button {
-  margin-top: 20px;
+  height: 40px;
 }
-.ui.card {
-  background-color: #8ea594;
-  box-shadow: none;
+
+.ui.fluid.dropdown {
+  margin-left: 10px;
+  width: 20%;
+}
+.ui.centered.card {
+  background-color: #8ea59483;
+  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
   padding: 20px;
-
 }
-.ui.cards>.card{
-  width:15%;
-  padding:20px;
-  background-color:  #fafafa;
+.ui.cards > .card {
+  width: 15%;
+  padding: 1%;
+  padding-bottom: 5%;
   font-size: small;
-  
+  margin-top: 40px;
 }
-
 
 .ui.header:last-child {
   margin-top: 10px;
@@ -85,19 +97,29 @@ body {
 .ui.segment {
   background-color: #8ea594;
 }
-.ui.segment:last-child {
+
+#results-card {
   margin-top: 5px;
 }
+#weather-icon-lg {
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+  height: 25%;
+}
 
-#weather-icon {
-  width: 30%;
-  height: 30%;
+#weather-icon-sm {
+  width: 50%;
+  height: 50%;
 }
 #weather-header {
-font-size: 20px;
+  font-size: 30px;
 }
 #weather-description {
-font-size: medium;
+  font-size: medium;
+}
+#weather-content {
+  text-align: center;
 }
 #trail-header {
   font-size: 25px;

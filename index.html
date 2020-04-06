@@ -10,7 +10,7 @@
     />
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Faster+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Trail Run Finder</title>
+    <title>Run Wild: Trail Run Finder</title>
     <link
       rel="shortcut icon"
       type="image/png"
@@ -21,12 +21,12 @@
     <header>
       <div class="ui sizer vertical segment center aligned">
         <div class="ui huge header">Run Wild</div>
-        <div id="run-wild-font">Trail Run Finder</div>
+        <div id="subheader">Trail Run Finder</div>
       </div>
       
     </header>
     <div class="ui celled grid">
-      <div class="two column row" id = main-text>
+      <div class="two column stackable row" id = main-text>
         <div class="column">
           <div class="row">
           <h2 class="ui header">
@@ -36,7 +36,7 @@
             </div>
           </h2>
           <form class="ui form" id = "radio-form">
-            <h4 class="ui dividing header" >Location</h4>
+            <h4 class="ui dividing header">Location</h4>
             <div class="field">
               <input
                 type="text"
@@ -47,8 +47,7 @@
             </div>
             <div class="inline fields">
               <h4 class="ui dividing header">Difficulty:</h4>
-              <br>
-              <br>
+            </div>
               <!-- <label>Difficulty:</label> -->
               <div class="field">
                 <div class="ui radio checkbox">
@@ -60,7 +59,7 @@
                     readonly=""
                     value="green"
                   />
-                  <label>Easy (green)</label>
+                  <label>Easy</label>
                 </div>
               </div>
               <div class="field">
@@ -73,7 +72,7 @@
                     readonly=""
                     value="blue"
                   />
-                  <label>Medium (blue)</label>
+                  <label>Medium</label>
                 </div>
               </div>
               <div class="field">
@@ -86,29 +85,29 @@
                     readonly=""
                     value="black"
                   />
-                  <label>Hard (black)</label>
+                  <label>Hard</label>
                 </div>
               </div>
-            </div>
+     
             <div class="field">
               <div class="two fields">
                 <div class="field">
-                  <h4 class="ui dividing header">Minimum Distance (Optional):</h4>
+                  <h4 class="ui dividing header">Min. Distance:</h4>
 
                   <!-- <label>Minimum Distance (Optional):</label> -->
-                  <input type="text" name="min-distance" class ="minDistance" placeholder="Min Distance: 0-200 miles" />
+                  <input type="text" name="min-distance" class ="minDistance" placeholder="Optional: 0-200 miles" />
                 </div>
                 <div class="ui range" id="min-range"></div>
                 <div class="field">
-                  <h4 class="ui dividing header">Maximum Distance (Optional):</h4>
+                  <h4 class="ui dividing header">Max. Distance:</h4>
 
                   <!-- <label>Maximum Distance (Optional):</label> -->
-                  <input type="text" name="max-distance"  class ="maxDistance" placeholder="Max Distance: 0-200 miles" />
+                  <input type="text" name="max-distance"  class ="maxDistance" placeholder="Optional: 0-200 miles" />
                 </div>
               </div>
             </div>
-            <div class="fields">
-              <h4 class="ui dividing header"># Results (Optional)</h4>
+            <div class="fields" id="relative">
+              <h4 class="ui dividing header"># of Trails:</h4>
 
               <!-- <label>Number of Results (Optional)</label> -->
               <select class="ui fluid dropdown result-dropdown">
@@ -117,14 +116,15 @@
                 <option value="5">5</option>
                 <option value="10">10</option>
               </select>
+              <button class="ui button" id="search-btn absolute" tabindex="0">Search</button>
             </div>
-            <div class="ui button" id="search-btn" tabindex="0">Search</div>
+            
           </form>
         </div>
         <div class="row row-results">
           <h2 class="ui header">
             <i class="file alternate outline icon"></i>
-            <div class="content" id="run-wild-font">Results</div>
+            <div class="content" id="run-wild-font">Trail Results:</div>
             <div id="results-content"></div>
           </h2>
         </div>
@@ -134,14 +134,14 @@
           <div class="row weather">
             <h2 class="ui header">
               <i class="sun icon"></i>
-              <div class="content" id="run-wild-font">Current Weather</div>
+              <div class="content" id="run-wild-font">Current Weather: <span id="currentCity run-wild-font" class = "currentCityDate"></span></div>
               <div id="weather-content"></div>
             </h2>
           </div>
           <div class="row map">
             <h2 class="ui header">
               <i class="sun icon"></i>
-              <div class="content" id="run-wild-font">5 Day Forecast: <span id="currentCity run-wild-font"></span></div>
+              <div class="content" id="run-wild-font">5 Day Forecast: <span id="currentCity run-wild-font" class = "currentCity"></span></div>
               <div id="5-day-content" class = "ui cards"></div>
 
             </h2>
@@ -152,10 +152,7 @@
     </div>
     <footer>
       <div class="ui vertical sticky footer segment">
-        <div class="ui center aligned container">
-          <i class="leaf icon"></i>
-          <h4 class="ui header"></h4>
-        </div>
+          <i class="leaf icon"></i><span> Created with freedom </span><i class="leaf icon"></i>
       </div>
     </footer>
     <script
