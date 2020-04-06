@@ -19,14 +19,12 @@
   <body>
     <header>
       <div class="ui sizer vertical segment center aligned">
-        <div class="ui huge header">
-          <p>Trail Run Finder</p>
-          <p>Clothing (optional)</p>
-        </div>
+        <div class="ui huge header">Trail Run Finder</div>
+          <div class="sub header">Clothing (optional)</div>
       </div>
     </header>
     <div class="ui celled grid">
-      <div class="two column row">
+      <div class="two column row" id = main-text>
         <div class="column">
           <h2 class="ui header">
             <i class="child icon"></i>
@@ -45,7 +43,8 @@
               />
             </div>
             <div class="inline fields">
-              <label>Difficulty:</label>
+              <h4 class="ui dividing header">Difficulty:</h4>
+              <!-- <label>Difficulty:</label> -->
               <div class="field">
                 <div class="ui radio checkbox">
                   <input
@@ -89,18 +88,24 @@
             <div class="field">
               <div class="two fields">
                 <div class="field">
-                  <label>Minimum Distance (Optional):</label>
+                  <h4 class="ui dividing header">Minimum Distance (Optional):</h4>
+
+                  <!-- <label>Minimum Distance (Optional):</label> -->
                   <input type="text" name="min-distance" class ="minDistance" placeholder="Min Distance: 0-200 miles" />
                 </div>
                 <div class="ui range" id="min-range"></div>
                 <div class="field">
-                  <label>Maximum Distance (Optional):</label>
+                  <h4 class="ui dividing header">Maximum Distance (Optional):</h4>
+
+                  <!-- <label>Maximum Distance (Optional):</label> -->
                   <input type="text" name="max-distance"  class ="maxDistance" placeholder="Max Distance: 0-200 miles" />
                 </div>
               </div>
             </div>
             <div class="fields">
-              <label>Number of Results (Optional)</label>
+              <h4 class="ui dividing header">Number of Results (Optional)</h4>
+
+              <!-- <label>Number of Results (Optional)</label> -->
               <select class="ui fluid dropdown result-dropdown">
                 <!-- <option value="">Choose how many results you would like to see</option> -->
                 <option value="1">1</option>
@@ -138,14 +143,14 @@
         </h2>
       </div>
     </div>
-    <!-- <footer>
+    <footer>
       <div class="ui vertical sticky footer segment">
         <div class="ui center aligned container">
           <i class="leaf icon"></i>
           <h4 class="ui header"></h4>
         </div>
       </div>
-    </footer> -->
+    </footer>
     <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
