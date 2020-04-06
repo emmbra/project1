@@ -15,11 +15,11 @@ body {
   background: #324932;
 }
 .ui.huge.header{
-  padding-top:20px;
-  font-family: Helvetica, Arial, Sans-Serif;
+  font-family: 'Amatic SC', cursive;
   color: #abad71;
-  padding-bottom:5px;
+  font-size: 60px;
 }
+
 .ui.celled.grid {
   background-color: #8ea594;
   border-width: 1px;
@@ -46,6 +46,11 @@ body {
   /* margin:10px; */
 }
 
+#run-wild-font {
+  font-family: 'Amatic SC', cursive;
+  font-size: 30px;
+}
+
 .ui.vertical.sticky.footer.segment {
   border-top: 1px solid #dddddd;
   color: #abad71;
@@ -63,19 +68,30 @@ body {
   background-color: #8ea594;
   box-shadow: none;
   padding: 20px;
+
 }
+.ui.cards>.card{
+  width:15%;
+  padding:20px;
+  background-color:  #fafafa;
+  font-size: small;
+  
+}
+
+
 .ui.header:last-child {
   margin-top: 10px;
-}
-.ui.fluid.card {
-  width: 95%;
 }
 .ui.segment {
   background-color: #8ea594;
 }
+.ui.segment:last-child {
+  margin-top: 5px;
+}
+
 #weather-icon {
-  width: 10%;
-  height: 10%;
+  width: 30%;
+  height: 30%;
 }
 #weather-header {
 font-size: 20px;
@@ -83,7 +99,14 @@ font-size: 20px;
 #weather-description {
 font-size: medium;
 }
-
+#trail-header {
+  font-size: 25px;
+  color: #324932;
+}
+#trail-description {
+  font-size: 15px;
+  font-style: normal;
+}
 
 /* 
 color index
