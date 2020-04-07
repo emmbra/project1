@@ -10,32 +10,41 @@ body {
   margin: 0 auto;
   color: white;
 }
+
 .ui.vertical.segment {
   background: #324932;
 }
+
+@keyframes slidein-left {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+@keyframes slidein-right {
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
 .ui.huge.header {
   font-family: "Amatic SC", cursive;
   color: #abad71;
   font-size: 80px;
+  animation: 3s slidein-right;
 }
-
-#relative {
-  position: relative;
-}
-
-#absolute {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-}
-/* .ui.button{
-  height:40%;
-} */
 #subheader {
   font-family: "Amatic SC", cursive;
   color: #abad71;
   font-size: 40px;
   font-weight: bold;
+  animation: 3s slidein-left;
 }
 
 #run-wild-font {
@@ -45,6 +54,7 @@ body {
 }
 
 .ui.celled.grid {
+  box-shadow: 0 5px 5px 3px #374046;
   background-color: #8ea594d3;
   border-width: 1px;
   border-style: solid;
@@ -54,6 +64,7 @@ body {
   margin-left: auto;
   margin-top: 20px;
   margin-bottom: 20px;
+  align-content: space-evenly;
 }
 
 .ui.dividing.header {
@@ -69,29 +80,37 @@ body {
 }
 
 .ui.fluid.dropdown {
-  margin-left: 10px;
-  width: 20%;
+  width: 50%;
 }
 
 .ui.centered.card {
   background-color: #8ea59483;
   box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
   padding: 20px;
+  margin-top: 20px;
+  border: 1px solid rgba(34,36,38,.15);
 }
 
 .ui.cards > .card {
-  width: 15%;
+  width: 18%;
   padding: 1%;
   padding-bottom: 5%;
   font-size: small;
-  margin-top: 40px;
+  margin-top: 26px;
+  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(34,36,38,.15);
 }
 
-.ui.header:last-child {
-  margin-top: 10px;
+.ui.card>.content, .ui.cards>.card>.content {
+  padding:5%;
 }
+
 .ui.segment {
   background-color: #8ea594;
+}
+
+#top-row{
+ height: 400px;
 }
 
 #results-card {
@@ -132,22 +151,12 @@ body {
 #trail-descripTitle {
   font-weight: 900;
 }
+#modal-text {
+  text-align: center;
+}
 
-/* 
-color index
-    brown
-        #8e6a55
-        rgb(142, 106, 85)
-    light green
-        #abad71
-        rgb(171, 173, 113)
-    light teal green
-        #8ea594
-        rgb(142, 165, 148)
-    darker green
-        #495e4d
-        rgb(73, 94, 77)
-    dark grey
-        #374046
-        rgb(55, 64, 70)
- */
+@media (max-width: 768px) {
+  #top-row {
+    height: fit-content;
+  } 
+}
