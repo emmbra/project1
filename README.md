@@ -50,13 +50,13 @@ Difficulties included:
 ## Screenshots
 
 ### Start Screen
-![Screenshot of Start Screen](https://github.com/emmbra/project1/blob/master/assets/images/01-screenshot-startscreen.png)
+![Screenshot of Start Screen](https://github.com/emmbra/project1/blob/master/assets/img/01-screenshot-startscreen.png)
 
 ### Search Results
-![Screenshot of Search Results](https://github.com/emmbra/project1/blob/master/assets/images/02-screenshot-searchresults.png)
+![Screenshot of Search Results](https://github.com/emmbra/project1/blob/master/assets/img/02-screenshot-searchresults.png)
 
 ### Error Screen
-![Screenshot of Error Screen](https://github.com/emmbra/project1/blob/master/assets/images/03-screenshot-error.png)
+![Screenshot of Error Screen](https://github.com/emmbra/project1/blob/master/assets/img/03-screenshot-error.png)
 
 ## Credits
 
