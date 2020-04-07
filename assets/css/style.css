@@ -16,7 +16,7 @@ body {
 .ui.huge.header {
   font-family: "Amatic SC", cursive;
   color: #abad71;
-  font-size: 60px;
+  font-size: 80px;
 }
 
 #relative {
@@ -33,14 +33,14 @@ body {
 } */
 #subheader {
   font-family: "Amatic SC", cursive;
-  color: black;
-  font-size: 30px;
+  color: #abad71;
+  font-size: 40px;
   font-weight: bold;
 }
 
 #run-wild-font {
   font-family: "Amatic SC", cursive;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
 }
 
@@ -110,7 +110,7 @@ body {
   height: 50%;
 }
 #weather-header {
-  font-size: 30px;
+  font-size: 40px;
 }
 #weather-description {
   font-size: medium;

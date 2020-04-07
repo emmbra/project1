@@ -193,7 +193,7 @@ $(document).ready(function () {
       //create HTML elements
       var $resultsDiv = $("<div>").addClass("ui segment fluid results-card").attr("id", "results-card");
       var $imgSmall = $("<img>").attr("src", imgSmall).addClass('ui small left floated image results-img');
-      var $aUrl = $(`<a href="` + trailLink + `">` + name + `</a>`).attr("id", "trail-header");
+      var $aUrl = $(`<a href="` + trailLink + `">` + name + `</a>`).attr("id", "trail-header").attr("target", "_blank");
       // var $pTrailName = $("<p>").attr("id", "trail-header").text(name);
       var $pSummary = $("<p>").attr("id", "trail-description").text("Summary: " + summary);
       var $pDifficulty = $("<p>").attr("id", "trail-description").text("Difficulty: " + difficulty);
