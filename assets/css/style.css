@@ -96,6 +96,9 @@ body {
 
 #results-card {
   margin-top: 5px;
+  background-color: #8ea59483;
+  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+  padding: 20px;
 }
 
 #weather-icon-lg {
@@ -125,6 +128,9 @@ body {
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
+}
+#trail-descripTitle {
+  font-weight: 900;
 }
 
 /* 
