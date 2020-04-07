@@ -10,12 +10,23 @@ $(document).ready(function () {
   $("#search-btn").on("click", function (event) {
     event.preventDefault();
     $("#results-content").empty();
-    console.log("hello");
     var locationSearched = $("#location-searched").val().trim();
-    console.log(locationSearched);
     $("#location-searched").val("");
     runWeather(locationSearched);
   });
+
+
+  // function errorCheck(locationSearched) {
+  //   var lettersOnly = /^[a-zA-Z]+$/;
+  //   if((locationSearched.value.match(lettersOnly)) {
+  //     return true;
+  //   } else { 
+  //     alert("error"); 
+  //     return false; 
+  //     return;
+  //   }
+  // }
+
 
   // function to retrieve current day's weather and create HTMl elements
   // set default city to San Francisco so page isn't blank on load
@@ -25,7 +36,6 @@ $(document).ready(function () {
       url: `https://api.openweathermap.org/data/2.5/weather?q=${locationSearched}&appid=a9fa8e4a5cdb9ab82f25d7a62cad4dc7&units=imperial`,
       type: "GET",
     }).then(function (response) {
-      console.log(response);
       $("#weather-content").empty();
       $(".currentCityDate").empty();
       // make variables and HTML elements
@@ -79,18 +89,17 @@ $(document).ready(function () {
       url: `https://api.openweathermap.org/data/2.5/forecast?q=${locationSearched}&appid=a9fa8e4a5cdb9ab82f25d7a62cad4dc7&units=imperial`,
       type: "GET",
     }).then(function (response) {
-      console.log(response);
       $("#5-day-content").empty();
       // for loop to cycle through 5 day forecast api response and pull same time forecast (18:00:00) for each day
       for (var i = 0; i < response.list.length; i++) {
         if (response.list[i].dt_txt.indexOf("18:00:00") !== -1) {
           // create HTML elements
-          var fiveDayForecastCard = $("<div>").addClass("ui centered card");
+          var fiveDayForecastCard = $("<div>").addClass("content");
           var formattedDate = moment(response.list[i].dt_txt).format("l");
           var fiveDayCityName = $("<span>")
             .attr("id", "weather-header")
             .text(response.city.name);
-          var fiveDayDate = $("<span>").text(formattedDate);
+          var fiveDayDate = $("<span>").text(formattedDate).addClass("content");
           var fiveDayIcon = $("<img>").attr("id", "weather-icon-sm").attr(
             "src",
             "https://openweathermap.org/img/w/" +
@@ -106,33 +115,19 @@ $(document).ready(function () {
 
           // append created HTML elements
           fiveDayForecastCard.append(
-            fiveDayDate,
+            // fiveDayDate,
             fiveDayIcon,
             fiveDayTemp,
             fiveDayHumidity
           );
           $(".currentCity").empty();
           $(".currentCity").append(fiveDayCityName);
+          $("#5-day-content").append(fiveDayDate);
           $("#5-day-content").append(fiveDayForecastCard);
         }
       }
     });
   }
-
-  // Do we need the geolocation here anymore since we pull lat/lon from the weather API?
-
-  // built in DOM geolocation
-  // function getLocation() {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(showPosition);
-  //   }
-  // }
-  // function showPosition(position) {
-  //   latitude = position.coords.latitude;
-  //   longitude = position.coords.longitude;
-  //   console.log(latitude);
-  //   console.log(longitude);
-  // }
 
   //   function to retrieve trail run data based on user criteria and create HTML elements to append
   function runCriteria(latitude = 37.7749, longitude = -122.4194) {
@@ -141,13 +136,6 @@ $(document).ready(function () {
     var minDistance = $(".minDistance").val(); // default is 0, range is 0-200
     var maxResults = $(".result-dropdown").val(); // default is 10, range is 0-500
     var difficulty = $("#radio-form input[type='radio']:checked").val();
-
-    // difficulty index -- colors to difficulty
-    // Easy - Green
-    // Intermediate - Blue
-    // Difficult, Very Difficult - Black
-
-    // getLocation();
     var runCriteriaURL = `https://www.trailrunproject.com/data/get-trails?lat=${latitude}&lon=${longitude}&key=200717421-32b757164356f1ff9be99bc247820aea`;
     if (maxDistance) {
       runCriteriaURL += `&maxDistance=${maxDistance}`;
@@ -166,7 +154,6 @@ $(document).ready(function () {
       url: runCriteriaURL,
       type: "GET",
     }).then(function (response) {
-      console.log(response);
       var trails = response.trails;
       // var trailCount = $maxResults.val();
       // var $ulEl = $("<ul>");
@@ -197,23 +184,34 @@ $(document).ready(function () {
       // var $pTrailName = $("<p>").attr("id", "trail-header").text(name);
       // var $pSummary = $("<p>").attr("id", "trail-description").text("Summary: " + summary);
       var $pSummary = $("<p>").attr("id", "trail-description").text(summary);
-      // var $spanSum = $("<span>").attr("id", "trail-summaryTitle")
-      // var $spanSumVari = $("<span>").text(summary);
-      // $pSummary.append(
-      //   $spanSum,
-      //   $spanSumVari
-      // );
       var $pDifficulty = $("<p>").attr("id", "trail-description");
-      var $spanDiff = $("<span>").attr("id", "trail-summaryTitle").text("Difficulty: ");
+      var $spanDiff = $("<span>").attr("id", "trail-descripTitle").text("Difficulty: ");
       var $spanDiffVari = $("<span>").text(difficulty);
       $pDifficulty.append(
         $spanDiff,
         $spanDiffVari
       );
-      var $pStars = $("<p>").attr("id", "trail-description").text("Rating: " + stars + "/5");
-      var $pLocation = $("<p>").attr("id", "trail-description").text("Location: " + location);
-      var $pLength = $("<p>").attr("id", "trail-description").text("Length: " + length + " miles");
-
+      var $pStars = $("<p>").attr("id", "trail-description");
+      var $spanStars = $("<span>").attr("id", "trail-descripTitle").text("Rating: ");
+      var $spanStarsVari = $("<span>").text(stars + "/5");
+      $pStars.append(
+        $spanStars,
+        $spanStarsVari
+      );
+      var $pLocation = $("<p>").attr("id", "trail-description");
+      var $spanLocation = $("<span>").attr("id", "trail-descripTitle").text("Location: ");
+      var $spanLocationVari = $("<span>").text(location);
+      $pLocation.append(
+        $spanLocation,
+        $spanLocationVari
+      );
+      var $pLength = $("<p>").attr("id", "trail-description");
+      var $spanLength = $("<span>").attr("id", "trail-descripTitle").text("Length: ");
+      var $spanLengthVari = $("<span>").text(length + " miles");
+      $pLength.append(
+        $spanLength,
+        $spanLengthVari
+      );
       //append HTML elements to the page
       // $ulEl.append($li);
       $("#results-content").append($resultsDiv);

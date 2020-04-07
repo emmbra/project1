@@ -40,9 +40,9 @@ In total this project took three collaborators about 60 hours to build including
 
 Difficulties included:
 
-* Using Semantic UI as our CSS framework. Previous to this we only used     Bootstrap as a CSS framework so there was a learning curve and lots of research put into Semantic UI CSS and how to override CSS styling with our own CSS customizations.
+* Using Semantic UI as our CSS framework. Previous to this we only used Bootstrap as a CSS framework so there was a learning curve and lots of research put into Semantic UI CSS and how to override CSS styling with our own CSS customizations.
 * Using multiple APIs and feeding information from one API to another. We figured out quickly that the Trail Run Project Data API ajax request needs latitude and longitude or the request fails. We looked into geolocation APIs but figured out that the Open Weather API delivers latitude and longitude based on city searched which felt like a more elegant solution than invading someone's privacy by asking for their location.
-* Using $(this).
+
 
 ## Screenshots
 ### Coming Soon
