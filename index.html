@@ -1,145 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/Semantic-UI-CSS-master/semantic.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Faster+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Run Wild: Trail Run Finder</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="./assets/running-man_318-1564.jpg"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="./assets/Semantic-UI-CSS-master/semantic.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Faster+One&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Run Wild: Trail Run Finder</title>
-  <link rel="shortcut icon" type="image/png" href="./assets/running-man_318-1564.jpg" />
-</head>
-
-<body>
-  <header>
-    <div class="ui sizer vertical segment center aligned">
-      <div class="ui huge header">Run Wild</div>
-      <div id="subheader">Trail Run Finder</div>
-    </div>
-
-  </header>
-  <div class="ui celled grid">
-    <div class="two column stackable row" id="main-text">
-      <div class="column">
-        <div class="row">
-          <h2 class="ui header">
-            <i class="child icon"></i>
-            <div class="content" id="run-wild-font">
-              Find your ideal trail!
-            </div>
-          </h2>
-          <form class="ui form" id="radio-form">
-            <h4 class="ui dividing header">Location</h4>
-            <div class="field">
-              <input type="text" id="location-searched" name="Location" placeholder="Location" />
-            </div>
-            <div class="two fields">
-              <div class="inline fields">
-                <h4 class="ui dividing header">Difficulty:</h4>
+  <body>
+    <header>
+      <div class="ui sizer vertical segment center aligned">
+        <div class="ui huge header">Run Wild</div>
+        <div id="subheader">Trail Run Finder</div>
+      </div>
+    </header>
+    <div class="ui celled grid">
+      <div class="two column stackable row" id="main-text">
+        <div class="column">
+          <div class="row">
+            <h2 class="ui header">
+              <i class="child icon"></i>
+              <div class="content" id="run-wild-font">
+                Find your ideal trail!
               </div>
-              <!-- <label>Difficulty:</label> -->
+            </h2>
+            <form class="ui form" id="radio-form">
+              <h4 class="ui dividing header">Location</h4>
               <div class="field">
-                <div class="subfield">
-                  <div class="ui radio checkbox">
-                    <input type="radio" name="difficulty" tabindex="0" id="hidden difficulty" readonly=""
-                      value="green" />
-                    <label>Easy</label>
-                  </div>
-                </div>
-                <div class="subfield">
-                  <div class="ui radio checkbox">
-                    <input type="radio" name="difficulty" tabindex="0" id="hidden difficulty" readonly=""
-                      value="blue" />
-                    <label>Medium</label>
-                  </div>
-                </div>
-                <div class="subfield">
-                  <div class="ui radio checkbox">
-                    <input type="radio" name="difficulty" tabindex="0" id="hidden difficulty" readonly=""
-                      value="black" />
-                    <label>Hard</label>
-                  </div>
-                </div>
+                <input
+                  type="text"
+                  id="location-searched"
+                  name="Location"
+                  placeholder="Location"
+                />
               </div>
-              <div class="field">
-                <h4 class="ui dividing header"># of Trails:</h4>
+              <div class="two fields">
+                <div class="inline fields">
+                  <h4 class="ui dividing header">Difficulty:</h4>
+                </div>
+                <!-- <label>Difficulty:</label> -->
+                <div class="field">
+                  <div class="subfield">
+                    <div class="ui radio checkbox">
+                      <input
+                        type="radio"
+                        name="difficulty"
+                        tabindex="0"
+                        id="hidden difficulty"
+                        readonly=""
+                        value="green"
+                      />
+                      <label>Easy</label>
+                    </div>
+                  </div>
+                  <div class="subfield">
+                    <div class="ui radio checkbox">
+                      <input
+                        type="radio"
+                        name="difficulty"
+                        tabindex="0"
+                        id="hidden difficulty"
+                        readonly=""
+                        value="blue"
+                      />
+                      <label>Medium</label>
+                    </div>
+                  </div>
+                  <div class="subfield">
+                    <div class="ui radio checkbox">
+                      <input
+                        type="radio"
+                        name="difficulty"
+                        tabindex="0"
+                        id="hidden difficulty"
+                        readonly=""
+                        value="black"
+                      />
+                      <label>Hard</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <h4 class="ui dividing header"># of Trails:</h4>
 
-                <!-- <label>Number of Results (Optional)</label> -->
+                  <!-- <label>Number of Results (Optional)</label> -->
+                </div>
+                <select class="ui fluid dropdown result-dropdown" id="relative">
+                  <!-- <option value="">Choose how many results you would like to see</option> -->
+                  <option value="1">1</option>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                </select>
               </div>
-              <select class="ui fluid dropdown result-dropdown" id="relative">
-                <!-- <option value="">Choose how many results you would like to see</option> -->
-                <option value="1">1</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-              </select>
-            </div>
               <!-- <div class="field"> -->
-                <div class="two fields">
-                  <div class="field">
-                    <h4 class="ui dividing header">Min. Distance:</h4>
+              <div class="two fields">
+                <div class="field">
+                  <h4 class="ui dividing header">Min. Distance:</h4>
 
-                    <!-- <label>Minimum Distance (Optional):</label> -->
-                    <input type="text" name="min-distance" class="minDistance" placeholder="Optional: 0-200 miles" />
-                  </div>
-                  <div class="ui range" id="min-range"></div>
-                  <div class="field">
-                    <h4 class="ui dividing header">Max. Distance:</h4>
-
-                    <!-- <label>Maximum Distance (Optional):</label> -->
-                    <input type="text" name="max-distance" class="maxDistance" placeholder="Optional: 0-200 miles" />
-                  </div>
+                  <!-- <label>Minimum Distance (Optional):</label> -->
+                  <input
+                    type="number"
+                    name="min-distance"
+                    class="minDistance"
+                    placeholder="Optional: 0-200 miles"
+                  />
                 </div>
-                
-              <button class="ui button" id="search-btn" tabindex="0">Search</button>
-          </form>
-        </div>
-        <br>
-        <hr>
-        <div class="row row-results">
-          <h2 class="ui header">
-            <i class="file alternate outline icon"></i>
-            <div class="content" id="run-wild-font">Trail Results:</div>
-            <div id="results-content"></div>
-          </h2>
-        </div>
-      </div>
+                <div class="ui range" id="min-range"></div>
+                <div class="field">
+                  <h4 class="ui dividing header">Max. Distance:</h4>
 
-      <div class="column">
-        <div class="row weather">
-          <h2 class="ui header">
-            <i class="sun icon"></i>
-            <div class="content" id="run-wild-font">Current Weather: <span id="currentCity run-wild-font"
-                class="currentCityDate"></span></div>
-            <div id="weather-content"></div>
-          </h2>
+                  <!-- <label>Maximum Distance (Optional):</label> -->
+                  <input
+                    type="number"
+                    name="max-distance"
+                    class="maxDistance"
+                    placeholder="Optional: 0-200 miles"
+                  />
+                </div>
+              </div>
+
+              <button class="ui button" id="search-btn" tabindex="0">
+                Find Trails
+              </button>
+            </form>
+          </div>
+          <br />
+          <hr />
+          <div class="row row-results">
+            <h2 class="ui header">
+              <i class="file alternate outline icon"></i>
+              <div class="content" id="run-wild-font">Trail Results:</div>
+              <div id="results-content"></div>
+            </h2>
+          </div>
         </div>
-        <hr>
-        <div class="row map">
-          <h2 class="ui header">
-            <i class="sun icon"></i>
-            <div class="content" id="run-wild-font">5 Day Forecast: <span id="currentCity run-wild-font"
-                class="currentCity"></span></div>
-            <div id="5-day-content" class="ui cards"></div>
 
-          </h2>
-
+        <div class="column">
+          <div class="row weather">
+            <h2 class="ui header">
+              <i class="sun icon"></i>
+              <div class="content" id="run-wild-font">
+                Current Weather:
+                <span
+                  id="currentCity run-wild-font"
+                  class="currentCityDate"
+                ></span>
+              </div>
+              <div id="weather-content"></div>
+            </h2>
+          </div>
+          <hr />
+          <div class="row map">
+            <h2 class="ui header">
+              <i class="sun icon"></i>
+              <div class="content" id="run-wild-font">
+                5 Day Forecast:
+                <span id="currentCity run-wild-font" class="currentCity"></span>
+              </div>
+              <div id="5-day-content" class="ui cards"></div>
+            </h2>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  <footer>
-    <div class="ui vertical sticky footer segment">
-      <i class="leaf icon"></i><span> Created with freedom </span><i class="leaf icon"></i>
-    </div>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-  <script src="./assets/Semantic-UI-CSS-master/semantic.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="./assets/js/script.js"></script>
-</body>
 
+    <footer>
+      <div class="ui vertical sticky footer segment">
+        <div>
+          <p> Created with freedom by: </p>
+        </div>
+        <div>
+          <i class="leaf icon"></i>
+          <a href="https://github.com/cgleungsf" target="_blank">Christina Leung</a>,
+          <a href="https://github.com/Tassim" target="_blank">Tassia Shibuya</a>, &
+          <a href="https://github.com/emmbra" target="_blank">Emmett Brady</a>
+          <i class="leaf icon"></i>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/Semantic-UI-CSS-master/semantic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
