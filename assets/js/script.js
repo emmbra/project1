@@ -195,8 +195,21 @@ $(document).ready(function () {
       var $imgSmall = $("<img>").attr("src", imgSmall).addClass('ui small left floated image results-img');
       var $aUrl = $(`<a href="` + trailLink + `">` + name + `</a>`).attr("id", "trail-header");
       // var $pTrailName = $("<p>").attr("id", "trail-header").text(name);
-      var $pSummary = $("<p>").attr("id", "trail-description").text("Summary: " + summary);
-      var $pDifficulty = $("<p>").attr("id", "trail-description").text("Difficulty: " + difficulty);
+      // var $pSummary = $("<p>").attr("id", "trail-description").text("Summary: " + summary);
+      var $pSummary = $("<p>").attr("id", "trail-description").text(summary);
+      // var $spanSum = $("<span>").attr("id", "trail-summaryTitle")
+      // var $spanSumVari = $("<span>").text(summary);
+      // $pSummary.append(
+      //   $spanSum,
+      //   $spanSumVari
+      // );
+      var $pDifficulty = $("<p>").attr("id", "trail-description");
+      var $spanDiff = $("<span>").attr("id", "trail-summaryTitle").text("Difficulty: ");
+      var $spanDiffVari = $("<span>").text(difficulty);
+      $pDifficulty.append(
+        $spanDiff,
+        $spanDiffVari
+      );
       var $pStars = $("<p>").attr("id", "trail-description").text("Rating: " + stars + "/5");
       var $pLocation = $("<p>").attr("id", "trail-description").text("Location: " + location);
       var $pLength = $("<p>").attr("id", "trail-description").text("Length: " + length + " miles");

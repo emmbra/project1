@@ -104,7 +104,6 @@ body {
   width: 25%;
   height: 25%;
 }
-
 #weather-icon-sm {
   width: 50%;
   height: 50%;
@@ -125,6 +124,7 @@ body {
 #trail-description {
   font-size: 15px;
   font-style: normal;
+  font-weight: 500;
 }
 
 /* 
